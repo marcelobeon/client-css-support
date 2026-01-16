@@ -1,4 +1,5 @@
 # Ferramenta de injeção CSS (Vite + Chrome Extension)
+
 Esta ferramenta permite injetar CSS localmente em sites de clientes através de uma extensão do Chrome, com live reload utilizando Vite.
 
 ## 1. Clone do repositório base
@@ -27,9 +28,6 @@ git clone git@github.com:marcelobeon/client-css-support.git
   ```js
   var sass = require("gulp-sass")(dartSass)
   ```
-
-- Adicionar a importação no gulpfile.js: "var dartSass = require("sass")";
-- Alterar a importação no gulpfile.js: "var sass = require("gulp-sass")" para "var sass = require("gulp-sass")(dartSass)";
 - Mova o arquivo vite-config.js para a raiz do repositório;
 - Adicione os seguintes scripts ao ´package.json´:
 
