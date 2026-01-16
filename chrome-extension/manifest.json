@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Dev CSS Cori",
+  "version": "1.0",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.cori.com.br/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "host_permissions": [
+    "https://www.cori.com.br/*",
+    "http://localhost:5174/*"
+  ]
+}
