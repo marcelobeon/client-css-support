@@ -7,13 +7,13 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://www.cori.com.br/*"],
+      "matches": ["https://www.cliente.com.br/*"],
       "js": ["content.js"],
       "run_at": "document_end"
     }
   ],
   "host_permissions": [
-    "https://www.cori.com.br/*",
+    "https://www.cliente.com.br/*",
     "http://localhost:5174/*"
   ]
 }
