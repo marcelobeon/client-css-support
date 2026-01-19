@@ -1,11 +1,11 @@
-import { defineConfig } from 'vite';
+﻿import { defineConfig } from 'vite';
 import fs from 'fs';
 import path from 'path';
 
 export default defineConfig({
   server: {
     // Altere a porta caso acesse multiplos clientes 
-    port: 5174,
+    port: 5173,
     cors: true,
     // Servir arquivos da pasta src publicamente
     fs: {
@@ -16,7 +16,7 @@ export default defineConfig({
   
   build: {
     rollupOptions: {
-      input: 'src/dev/chrome-extension/content.js',
+      input: 'src/client-css-support/chrome-extension/content.js',
       output: {
         entryFileNames: 'content.js',
         format: 'iife'
@@ -29,7 +29,7 @@ export default defineConfig({
       name: 'serve-css',
       configureServer(server) {
         server.middlewares.use('/css', (req, res, next) => {
-          const cssPath = path.join(__dirname, 'src/dev/css/style.css');
+          const cssPath = path.join(__dirname, 'src/client-css-support/css/style.css');
           if (fs.existsSync(cssPath)) {
             res.setHeader('Content-Type', 'text/css');
             res.setHeader('Cache-Control', 'no-cache');

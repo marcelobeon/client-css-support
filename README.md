@@ -3,38 +3,31 @@
 Esta ferramenta permite injetar CSS localmente em sites de clientes através de uma extensão do Chrome, com live reload utilizando Vite.
 
 ## 1. Clone do repositório base
-Clone este repositório dentro da pasta src/ do projeto do cliente:
+Clone este repositório dentro da pasta src/ do cliente:
 ```
 git clone git@github.com:marcelobeon/client-css-support.git
 ```
 
 
 ## 2. Ajustes no repositório do cliente
-- Remover a seguinte devDependencies (não compatível com a versão do vite):
+- Remover a seguinte devDependencies (não compatível com a versão do vite), caso exista:
   - "node-sass": "^4.14.1"
+  
 - Adicionar o Vite nas devDependencies:
   - "vite": "^7.2.4"
 
 - Ajustar o gulpfile.js:
-  - Adicionar:
-  ```js
-  var dartSass = require("sass")
-  ```
-  - Alterar:
-  ```js
-  var sass = require("gulp-sass")
-  ```
   - Para:
   ```js
-  var sass = require("gulp-sass")(dartSass)
+  var sass = require("gulp-sass")(require("sass"));
   ```
-- Mova o arquivo vite-config.js para a raiz do repositório;
+- Mover o arquivo vite-config.js para a raiz do repositório;
 - Adicione os seguintes scripts ao ´package.json´:
 
 ```json
 "scripts": {
   "dev": "vite",
-  "dev:sass": "npx sass --watch src/dev/scss:src/dev/css --style=expanded"
+  "dev:sass": "npx sass --watch src/client-css-support/scss:src/client-css-support/css"
 }
 ```
 
@@ -45,7 +38,7 @@ Edite o arquivo manifest.json e ajuste o domínio do cliente:
 ```json
 {
   "manifest_version": 3,
-  "name": "Dev CSS Cliente",
+  "name": "Dev CSS Cliente x",
   "version": "1.0",
   "background": {
     "service_worker": "background.js"
@@ -59,7 +52,7 @@ Edite o arquivo manifest.json e ajuste o domínio do cliente:
   ],
   "host_permissions": [
     "https://www.cliente.com.br/*", // <-- Altere aqui
-    "http://localhost:5174/*"
+    "http://localhost:5173/*"
   ]
 }
 ```
@@ -71,9 +64,9 @@ Edite o arquivo manifest.json e ajuste o domínio do cliente:
 npm install
 ```
 
-- No Chrome acesse: chrome://extensions
+- No Chrome acesse: *chrome://extensions*
   - Habilite o Developer mode;
-  - Carregue a extensão no Chrome apontando para a pasta `src/dev/chrome-extension` em Load unpacked;
+  - Carregue a extensão no Chrome apontando para a pasta `src/client-css-support/chrome-extension` em Load unpacked;
 
 - Inicie o Vite e o watcher do SASS:
 

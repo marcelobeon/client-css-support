@@ -1,4 +1,4 @@
-const CSS_URL = 'http://localhost:5174/css';
+const CSS_URL = 'http://localhost:5173/css';
 
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   if (msg && msg.type === 'get-css') {

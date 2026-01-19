@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Dev CSS Cori",
+  "name": "Dev CSS Cliente x",
   "version": "1.0",
   "background": {
     "service_worker": "background.js"
@@ -14,6 +14,6 @@
   ],
   "host_permissions": [
     "https://www.cliente.com.br/*",
-    "http://localhost:5174/*"
+    "http://localhost:5173/*"
   ]
 }
